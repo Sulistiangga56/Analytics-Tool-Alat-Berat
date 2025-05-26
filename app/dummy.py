@@ -7,14 +7,14 @@ from db_config import engine
 manufacturers = ["Caterpillar", "Komatsu", "Hitachi", "Volvo", "John Deere"]
 unit_types = ["Excavator", "Bulldozer", "Loader", "Dump Truck", "Grader"]
 
-def generate_unit_master_data(n=100):
+def generate_unit_master_data(n=50):
     units = []
     for i in range(1, n+1):
         unit_name = f"Unit-{i:03d}"
         unit_code = f"UC{i:05d}"
         unit_type = random.choice(unit_types)
         manufacturer = random.choice(manufacturers)
-        year_manufactured = random.randint(2000, 2023)
+        year_manufactured = random.randint(2000, 2025)
         units.append({
             "unit_name": unit_name,
             "unit_code": unit_code,
@@ -78,7 +78,7 @@ def insert_equipment_logs(logs):
         conn.commit()
 
 if __name__ == "__main__":
-    units = generate_unit_master_data(100)
+    units = generate_unit_master_data(50)
     insert_unit_master(units)
     unit_ids = get_all_unit_ids()
     logs = generate_equipment_logs(unit_ids, logs_per_unit=10)

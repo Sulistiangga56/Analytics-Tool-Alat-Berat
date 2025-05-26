@@ -19,6 +19,6 @@ def generate_logs(unit_ids, start_date, end_date):
     return pd.DataFrame(logs)
 
 if __name__ == "__main__":
-    df = generate_logs(unit_ids=[1, 2, 3], start_date=datetime(2024, 1, 1), end_date=datetime(2024, 1, 30))
+    df = generate_logs(unit_ids=[1, 2, 3], start_date=datetime(2025, 1, 1), end_date=datetime(2025, 1, 30))
     df.to_csv("equipment_logs.csv", index=False)
     print("Simulasi data selesai disimpan.")
